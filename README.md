@@ -286,7 +286,30 @@ Javaソースのliteralinclude:
 
 タイトルと著者名を日本語にしてみた（pLaTeX 経由についてはロゴ画像も追加）：
 
-https://github.com/msakamoto-sf/sphinx-tex-pdf-exercise1/commit/b7f5bb5ef521c8cce1ee133800904b29af9c62a3
+ * https://github.com/msakamoto-sf/sphinx-tex-pdf-exercise1/commit/b7f5bb5ef521c8cce1ee133800904b29af9c62a3
+
+また、rst2pdfから出力したPDFが、別の環境だと文字化けしてた。色々試行錯誤したところ、以下のコミットで直った。
+
+ * https://github.com/msakamoto-sf/sphinx-tex-pdf-exercise1/commit/ab1b32a7cc4182818c7f05600208a6af16d7828d
+ * ポイント1 : そもそも20行目で、最後のmap要素に "," が付いてたためJSONのパースエラーが発生していた。
+ * ポイント2 : `fontsAlias` でのフォント名を、`fc-list` の一覧で表示されるフォント名に修正した。あわせて、stdをプロポーショナル明朝, Sansをプロポーショナルゴシック, Monoを固定幅ゴシックのフォントファミリーに修正。
+   * IPAフォント/VLゴシックでの Bold / Italic 切り替え方法が不明だったので、Bold も Italic も全部Regularにせざるを得なかった。このため、太字・斜体がrst2pdf経由では表現できず・・・。
+ * ポイント3 : `embeddedFonts` で不要なのを削除し、さらに拡張子が間違ってたので修正。
+
+参考：
+
+ * rst2pdf で reStructuredText から PDF を生成する : 紹介マニア
+   * http://sakito.jp/python/rst2pdf.html
+ * Macでrst2pdfを使ってヒラギノなPDFを作成する。 - そこはかとなく書くよ。
+   * http://d.hatena.ne.jp/rudi/20101220/1292848464
+ * Sphinxを使って日本語PDFを出力する - rokujyouhitoma's blog
+   * http://rokujyouhitoma.hatenablog.com/entry/20091206/1260078111
+ * Sphinxを使ってPDFドキュメントを生成する(続き) - azuki note
+   * http://kenichiro22.hatenablog.com/entry/20100216/1266287625
+ * Sphinxでドキュメント生成-PDF（Windowsでの始め方） - torutkの日記
+   * http://d.hatena.ne.jp/torutk/20110520/p1
+ * rst2pdfを使うには - Fly me to the Juno!
+   * http://d.hatena.ne.jp/kompiro/20090110/1231581580
 
 # 参考資料
 
