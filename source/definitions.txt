@@ -1,0 +1,48 @@
+.. vim:set expandtab tabstop=2 shiftwidth=2 softtabstop=2 autoindent smartindent ft=rst:
+.. Sphinxにより二重に処理されないよう、拡張子を.rst以外にしてます。
+
+..
+  :envvar: ロールはreplaceで使えない？
+  .. |env_path| replace:: :envvar:`PATH`
+  .. |env_editor| replace:: :envvar:`EDITOR`
+  .. |env_pager| replace:: :envvar:`PAGER`
+  .. |env_java_home| replace:: :envvar:`JAVA_HOME`
+
+.. |rest| replace:: reStructuredText
+
+.. |tls| replace:: :abbr:`TLS (Transport Layer Security)`
+
+.. |ssl| replace:: :abbr:`SSL (Secure Sockets Layer)`
+
+.. |http| replace:: :abbr:`HTTP (Hypertext Transfer Protocol)`
+
+.. |https| replace:: :abbr:`HTTPS (Hypertext Transfer Protocol Secure)`
+
+.. |chkconfig| replace:: :command:`/usr/sbin/chkconfig`
+
+.. |systemctl| replace:: :command:`/usr/bin/systemctl`
+
+.. |hosts| replace:: :file:`/etc/hosts`
+
+.. |crontab| replace:: :file:`/etc/crontab`
+
+.. |passwd| replace:: :file:`/etc/passwd`
+
+.. |kbd_ctrl-c| replace:: :kbd:`Ctrl-C`
+
+.. |kbd_ctrl-v| replace:: :kbd:`Ctrl-V`
+
+.. |kbd_esc| replace:: :kbd:`ESC`
+
+.. |kbd_meta| replace:: :kbd:`Meta`
+
+.. |man_ls| replace:: :manpage:`ls(1)`
+
+.. |logo_png| image:: /images/rgb.png
+   :alt: RGB PNG image
+   :target: https://www.ruby-lang.org/
+
+.. |logo_jpg| image:: /images/rgb.jpg
+   :alt: RGB JPEG image
+   :target: https://www.python.org/
+

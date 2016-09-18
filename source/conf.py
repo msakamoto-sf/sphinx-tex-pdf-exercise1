@@ -252,10 +252,33 @@ latex_elements = {
      # Additional stuff for the LaTeX preamble.
      #
      # 'preamble': '',
+     # thanx to http://stackoverflow.com/questions/1935952/maximum-nesting-level-of-lists-in-latex
+     'preamble': '''
+     \\usepackage{enumitem}
+     \\setlistdepth{9}
+
+     \\setlist[itemize,1]{label=$\\bullet$}
+     \\setlist[itemize,2]{label=$\\bullet$}
+     \\setlist[itemize,3]{label=$\\bullet$}
+     \\setlist[itemize,4]{label=$\\bullet$}
+     \\setlist[itemize,5]{label=$\\bullet$}
+     \\setlist[itemize,6]{label=$\\bullet$}
+     \\setlist[itemize,7]{label=$\\bullet$}
+     \\setlist[itemize,8]{label=$\\bullet$}
+     \\setlist[itemize,9]{label=$\\bullet$}
+
+     \\renewlist{itemize}{itemize}{9}
+     ''',
 
      # Latex figure (float) alignment
      #
      # 'figure_align': 'htbp',
+
+     # thanx to http://bmath.org/wordpress/?p=2000
+     'transition': '',
+     'extraclassoptions': ',openany,oneside',
+     'classoptions': ',dvipdfmx',
+     'babel': '\\usepackage[japanese]{babel}',
 }
 
 # Grouping the document tree into LaTeX files. List of tuples
