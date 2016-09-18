@@ -31,6 +31,7 @@
 # ones.
 extensions = [
     'sphinx.ext.todo',
+    'rst2pdf.pdfbuilder'
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -338,3 +339,11 @@ texinfo_documents = [
 # If true, do not generate a @detailmenu in the "Top" node's menu.
 #
 # texinfo_no_detailmenu = False
+
+# -- Options for PDF output --------------------------------------------------
+
+pdf_documents = [
+            ('index', u'MyProject', u'My Project', u'Author Name'),
+                    ]
+pdf_stylesheets = ['sphinx','kerning','a4', 'ja']
+pdf_language = 'ja'
