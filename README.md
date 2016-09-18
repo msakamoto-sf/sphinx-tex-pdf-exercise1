@@ -133,6 +133,45 @@ Build finished. The PDF files are in _build/pdf.
 
 # 参考資料
 
+ * SphinxでPDFファイル作成 — Python製ドキュメンテーションビルダー、Sphinxの日本ユーザ会
+   * http://sphinx-users.jp/cookbook/pdf/
+   * まずはここから。
+
+## rst2pdf 参考資料
+
+ * rst2pdf/rst2pdf: Use a text editor. Make a PDF.
+   * https://github.com/rst2pdf/rst2pdf
+ * The Rst2pdf Handbook | Rst2pdf
+   * http://rst2pdf.ralsina.me/handbook.html
+   * Sphinx での使い方は、 http://rst2pdf.ralsina.me/handbook.html#sphinx から解説されてます。
+ * rst2pdf拡張を使ったPDFファイル作成 — Python製ドキュメンテーションビルダー、Sphinxの日本ユーザ会
+   * http://sphinx-users.jp/cookbook/pdf/rst2pdf.html
+   * 2016年9月時点の最新バージョンでも、ほぼほぼこの通りで作れてます。
+ * rst2pdf で reStructuredText から PDF を生成する : 紹介マニア
+   * http://sakito.jp/python/rst2pdf.html
+ * SphinxのPDF出力をrst2pdfで試す@Windows64bit | Futurismo
+   * http://futurismo.biz/archives/946
+
+## LaTeX経由 参考資料
+
+ * LaTeX経由でのPDF作成 — Python製ドキュメンテーションビルダー、Sphinxの日本ユーザ会
+   * http://sphinx-users.jp/cookbook/pdf/latex.html
+   * 2016-09時点の最新 Sphinx 1.4系なら、必要なパッチは当たってるようです。
+ * sphinxで日本語PDFを作成する方法 - Qiita
+   * http://qiita.com/graceful_life/items/3287fb8b82e2fec1aa49
+   * 少し古いバージョンの情報のようですが、画像埋め込みなど参考になります。
+ * Re: SphinxのLaTeXのフォーマットをいじる - Hack like a rolling stone
+   * http://tk0miya.hatenablog.com/entry/2014/07/17/003104
+   * Sphinxといいますか、ほぼ LaTeX 技の話になってます。preamble設定で好きなLaTeXを埋め込めます。
+ * Sphinx と LaTeX を使うときの 小技
+   * https://gist.github.com/uchida/4545280
+   * 細かいノウハウ。
+ * sphinxのPDF出力ではまった - yuitowest's blog
+   * http://yuitowest.hatenablog.com/entry/20111114/1321262351
+   * AAで作成した表でトラブルになった例
+ * Maximum nesting level of lists in Latex - Stack Overflow
+   * http://stackoverflow.com/questions/1935952/maximum-nesting-level-of-lists-in-latex
+   * リストアイテムのネスト段数の拡張について。
 
 ## `sphinx-quickstart` オプション
 
