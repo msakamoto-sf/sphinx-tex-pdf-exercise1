@@ -101,13 +101,13 @@ $ make latexpdfja
 rst2pdfによるPDF生成：
 
 1. `conf.py` と `Makefile` の修正：
-  * 0990b22aa12c48ad4de5f90aad379c2c3d0ce14b
+  * https://github.com/msakamoto-sf/sphinx-tex-pdf-exercise1/commit/0990b22aa12c48ad4de5f90aad379c2c3d0ce14b
   * 内容：
   * `conf.py` の `extensions` に `rst2pdf.pdfbuilder` を追加
   * `conf.py` に最低限度の設定を追加
   * `Makefile` に `pdf` ターゲットを追加
 2. `ja` 用のスタイル設定ファイル `ja.json` を追加：
-  * 7cdbbc184db9208b9556a0ff04b179c844281eb5
+  * https://github.com/msakamoto-sf/sphinx-tex-pdf-exercise1/commit/7cdbbc184db9208b9556a0ff04b179c844281eb5
 3. `make pdf` による生成
 
 ```
