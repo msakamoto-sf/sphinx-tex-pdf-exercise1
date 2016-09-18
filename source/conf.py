@@ -244,6 +244,7 @@ latex_elements = {
      # The paper size ('letterpaper' or 'a4paper').
      #
      # 'papersize': 'letterpaper',
+     'papersize': 'a4paper',
 
      # The font size ('10pt', '11pt' or '12pt').
      #
@@ -285,14 +286,15 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'sphinx-tex-pdf-exercise1.tex', u'sphinx-tex-pdf-exercise1 Documentation',
-     u'msakamoto-sf', 'manual'),
+    (master_doc, 'sphinx-tex-pdf-exercise1.tex', u'タイトルが日本語のpLaTeX経由',
+     u'著者名が日本語のpLaTeX経由', 'manual'),
 ]
 
 # The name of an image file (relative to this directory) to place at the top of
 # the title page.
 #
 # latex_logo = None
+latex_logo = './images/titlelogo.png'
 
 # For "manual" documents, if this is true, then toplevel headings are parts,
 # not chapters.
@@ -366,7 +368,7 @@ texinfo_documents = [
 # -- Options for PDF output --------------------------------------------------
 
 pdf_documents = [
-            ('index', u'MyProject', u'My Project', u'Author Name'),
+            ('index', u'rst2pdf-demo', u'タイトルが日本語のrst2pdf出力', u'著者名が日本語のrst2pdf出力'),
                     ]
 pdf_stylesheets = ['sphinx','kerning','a4', 'ja']
 pdf_language = 'ja'
