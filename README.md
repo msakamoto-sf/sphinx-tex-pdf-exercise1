@@ -130,6 +130,157 @@ build succeeded.
 Build finished. The PDF files are in _build/pdf.
 ```
 
+## 2. sphinx-rest-exercise1 からのrestの移行
+
+https://github.com/msakamoto-sf/sphinx-rest-exercise1 から幾つかrestファイルを移行してみた。
+
+コミット自体はまとめて次になる : https://github.com/msakamoto-sf/sphinx-tex-pdf-exercise1/commit/725e821bc6e2d8eb7fb0325692cd995de3c16530
+
+以下、そのまま移行できなくて、カスタマイズや修正が必要だったり、結局ギブアップした内容について簡単に紹介。
+
+### リストのネスト
+
+かなりリストのネストが深かったため、LaTeXで以下のエラーが発生した。
+
+```
+! LaTeX Error: Too deeply nested.
+```
+
+→
+
+ * Maximum nesting level of lists in Latex - Stack Overflow
+   * http://stackoverflow.com/questions/1935952/maximum-nesting-level-of-lists-in-latex
+
+上記記事を参考に、`conf.py` の `latex_elements` の `preamble` に追記：
+
+```
+  'preamble': '''
+  \\usepackage{enumitem}
+  \\setlistdepth{9}
+
+  \\setlist[itemize,1]{label=$\\bullet$}
+  \\setlist[itemize,2]{label=$\\bullet$}
+  \\setlist[itemize,3]{label=$\\bullet$}
+  \\setlist[itemize,4]{label=$\\bullet$}
+  \\setlist[itemize,5]{label=$\\bullet$}
+  \\setlist[itemize,6]{label=$\\bullet$}
+  \\setlist[itemize,7]{label=$\\bullet$}
+  \\setlist[itemize,8]{label=$\\bullet$}
+  \\setlist[itemize,9]{label=$\\bullet$}
+
+  \\renewlist{itemize}{itemize}{9}
+  ''',
+```
+
+### TODOリスト, 引用（ギブアップ）
+
+TODOリストの機能を使ってみたが、 `KeyError: 'ids'` エラーが発生した。
+また、引用についてもページ内や他のページにも分割してみたが、同様のエラーが発生した。
+
+ * exception in rst2pdf when the sphinx.ext.todo is present and used · Issue #513 · rst2pdf/rst2pdf
+   * https://github.com/rst2pdf/rst2pdf/issues/513
+
+上記issueで紹介されてる修正を `rst2pdf/basenodehandler.py` に加えてみたが、改善されなかったため、ギブアップ。
+
+### index.rst からの外部ファイル取り込み
+
+`source/re-st_syntax/ex-indice.rst` を `index.rst` の `toctree` に加えたところ、`ValueError: too many values to unpack` エラーが発生した。
+
+ * Generating Indices fails when used with Spinx 1.4.1 · Issue #568 · rst2pdf/rst2pdf
+   * https://github.com/rst2pdf/rst2pdf/issues/568
+
+上記issueで紹介されてる修正を `rst2pdf/pdfbuilder.py` に加えてみて、改善された。
+
+### アスキーアートの表（ギブアップ）
+
+```
+凝った書き方
+-------------------
+
++------------------------+------------+----------+----------+
+| Header row, column 1   | Header 2   | Header 3 | Header 4 |
+| (header rows optional) |            |          |          |
++========================+============+==========+==========+
+| body row 1, column 1   | column 2   | column 3 | column 4 |
++------------------------+------------+----------+----------+
+| body row 2             | Cells may span columns.          |
++------------------------+------------+---------------------+
+| body row 3             | Cells may  | - Table cells       |
++------------------------+ span rows. | - contain           |
+| body row 4             |            | - body elements.    |
++------------------------+------------+---------------------+
+```
+
+->以下のエラー発生。解決できず、ギブアップ。
+
+```
+! Undefined control sequence.
+\@tempc #1->\expandafter \def \@itemlabel
+                                          {#1}\def \enit@ref {\expandafter \...
+l.1065 \unskip}\relax \unskip}\relax }
+                                      \\
+```
+
+### GIF, TIFF画像の埋め込み（ギブアップ）
+
+GIF, TIFF画像を埋め込もうとしたのだが、GIF画像の埋め込みの段階で以下のエラーが発生。
+
+```
+! LaTeX Error: Cannot determine size of graphic in rgb.gif (no BoundingBox).
+```
+
+→ 以下のWikiにあるが、dvipdfmx が対応しなかったので、ギブアップ。（もしかしたら他のツールチェインで回避策もあるかもですが・・・）
+
+ * dvipdfmx/画像のとりこみ - TeX Wiki
+   * https://texwiki.texjp.org/?dvipdfmx%2F%E7%94%BB%E5%83%8F%E3%81%AE%E3%81%A8%E3%82%8A%E3%81%93%E3%81%BF
+
+### PNG, JPEG画像の埋め込み
+
+PNG, JPEG画像の埋め込みでも、色々エラーが出たので以下の記事を参考。
+
+ * Sphinx で blockdiag や seqdiag の図をいれた PDF 生成 | BmathLog
+   * http://bmath.org/wordpress/?p=2000
+
+→ `conf.py` の `latex_elements` に以下を追加して対応できた。
+
+```
+latex_elements = {
+#...
+     'transition': '',
+     'extraclassoptions': ',openany,oneside',
+     'classoptions': ',dvipdfmx',
+     'babel': '\\usepackage[japanese]{babel}',
+}
+```
+
+### Javaソースのinclude(code版)（ギブアップ）
+
+```
+.. include:: /include_demos/demo.java
+  :code: Java
+```
+
+→ 以下のエラーが発生。
+
+```
+! Missing \endcsname inserted.
+<to be read again>
+                   \unhbox
+l.1716 \DUrole{keyword,declaration}{public}
+                                            \DUrole{keyword,declaration}{cla...
+```
+
+解決できず、ギブアップ。
+
+以下の書き方は問題ないのに・・・：
+
+```
+Javaソースのliteralinclude:
+
+.. literalinclude:: /include_demos/demo.java
+  :language: java
+  :linenos:
+```
 
 # 参考資料
 
