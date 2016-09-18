@@ -282,6 +282,12 @@ Javaソースのliteralinclude:
   :linenos:
 ```
 
+## 3. タイトルと著者名の日本語化
+
+タイトルと著者名を日本語にしてみた（pLaTeX 経由についてはロゴ画像も追加）：
+
+https://github.com/msakamoto-sf/sphinx-tex-pdf-exercise1/commit/b7f5bb5ef521c8cce1ee133800904b29af9c62a3
+
 # 参考資料
 
  * SphinxでPDFファイル作成 — Python製ドキュメンテーションビルダー、Sphinxの日本ユーザ会
